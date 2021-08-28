@@ -25,12 +25,11 @@ class Regression:
             df[x_name_dimension], df[y_name_dimension], test_size=0.2
         )
 
-        info = dict()
-
         linear_regression = LinearRegression().fit(
             X_train.values.reshape(-1, 1), y_train.values
         )
 
+        info = dict()
         prediccion = linear_regression.predict(X_test.values.reshape(-1, 1))
 
         info["prediction"] = linear_regression.predict(np.array([[60]]))[0]
