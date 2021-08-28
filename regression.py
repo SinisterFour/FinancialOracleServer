@@ -12,7 +12,6 @@ class Regression:
     def __init__(self, X, y):
         self.X = X
         self.y = y
-        self.dataset = dataset
 
     def linear_regression(self):
         return LinearRegression().fit(self.X, self.y)
@@ -44,7 +43,6 @@ X = dataset.iloc[:, 1:2].values
 y = dataset.iloc[:, 2].values
 
 reg = Regression(X, y)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
 linear_regression = reg.linear_regression()
 pol_reg, poly_reg = reg.polynomial_regression()
