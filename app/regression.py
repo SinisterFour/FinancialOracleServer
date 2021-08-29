@@ -17,7 +17,23 @@ class Regression:
         self.link = link
         self.dataset = dataset
 
-    def linear_regression(self):
+    # Esta es la buenona
+    def linear(x, y, inpc):
+        print("X:", x)
+        x = numpy.asarray(x)
+        y = numpy.asarray(y)
+
+        model = LinearRegression().fit(x, y)
+
+        information = dict()
+        information["score"] = model.score(x, y)
+        information["intercept"] = model.intercept_
+        information["slope"] = model.coef_
+        information["predict"] = model.predict([inpc])
+
+        return information
+
+    def linear_regression(self, x, y):
         return LinearRegression().fit(self.X, self.y)
 
     def train_linear_regression(df, x_name_dimension, y_name_dimension):

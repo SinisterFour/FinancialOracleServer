@@ -16,7 +16,13 @@ def index():
 def linear_regression():
     if request.data:
         parameters = json.loads(request.data.decode("utf-8"))
-        return {"response": 200}
+
+        # print("\n---------------", parameters, "--------------\n")
+        lr = Regression.linear(parameters["train"], parameters["test"], parameters["test_inpc"])
+
+        print("\n---------------", lr, "--------------\n")
+
+        return lr
 
     return {"Nothing to show": 400}
 

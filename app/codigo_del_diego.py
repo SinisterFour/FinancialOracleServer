@@ -6,7 +6,7 @@ x = reader[1:, :-2]  # Train
 y = reader[1:, -1:]  # Train inpc
 
 print("X:", x, "\n")
-print("lle:", y, "\n")
+print("Y:", y, "\n")
 
 model = LinearRegression().fit(x, y)
 
