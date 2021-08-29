@@ -1,6 +1,28 @@
-from flask import Flask
+from flask import Flask, render_template, request
+import json
+from app import app
 
 app = Flask(__name__)
 
-from routes import *
+@app.route("/")
+@app.route("/index")
+def index():
+    return {"response": 200}
 
+
+@app.route("/linear_reggression", methods=["GET"])
+def linear_regression():
+    if request.data:
+        parameters = json.loads(request.data.decode("utf-8"))
+        return {"response": 200}
+
+    return {"Nothing to show": 400}
+
+
+@app.route("/polynomial_regression", methods=["GET"])
+def polynomial_regression():
+    if request.data:
+        parameters = json.loads(request.data.decode("utf-8"))
+        return {"response": 200}
+
+    return {"Nothing to show": 400}
